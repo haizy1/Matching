@@ -1,0 +1,47 @@
+/* Définir la police de base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Container principal pour les résultats */
+#resultsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Style pour chaque carte de résultat */
+.result-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+/* Effet au survol */
+.result-card:hover {
+    transform: scale(1.05);
+}
+
+/* Style pour le nom de l'étudiant */
+.name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Style pour le pourcentage */
+.percentage {
+    font-size: 14px;
+    color: #4CAF50;  /* Vert pour la correspondance */
+    font-weight: 600;
+}

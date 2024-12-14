@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="resultsContainer"></div>
+
+<script>
+    // Fonction pour récupérer les résultats depuis l'API
+    function fetchMatchingResults() {
+        fetch('/api/matching/5')  // Changez l'ID pour l'étudiant courant
+            .then(response => response.json())
+            .then(data => {
+                displayMatchingResults(data);
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des résultats :', error);
+            });
+    }
+
+    // Fonction pour afficher les résultats dans des carrés
+    function displayMatchingResults(results) {
+        const container = document.getElementById('resultsContainer');
+        container.innerHTML = '';  // Vider le contenu précédent
+
+        for (const [name, percentage] of Object.entries(results)) {
+            const resultElement = document.createElement('div');
+            resultElement.classList.add('result-card');
+            resultElement.innerHTML = `
+                    <p class="name">${name}</p>
+                    <p class="percentage">${percentage}%</p>
+                `;
+            container.appendChild(resultElement);
+        }
+    }
+
+    // Appeler la fonction pour récupérer et afficher les résultats
+    fetchMatchingResults();
+</script>
+</body>
+</html>
